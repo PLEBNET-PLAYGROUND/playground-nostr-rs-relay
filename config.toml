@@ -45,7 +45,7 @@ data_directory = "data"
 address = "0.0.0.0"
 
 # Listen on this port
-port = 8080
+port = 7000
 
 # If present, read this HTTP header for logging client IP addresses.
 # Examples for common proxies, cloudflare:
@@ -99,11 +99,6 @@ reject_future_seconds = 1800
 # Event persistence buffer size, in number of events.  This provides
 # backpressure to senders if writes are slow.
 #event_persist_buffer = 4096
-
-# Event kind blacklist. Events with these kinds will be discarded.
-#event_kind_blacklist = [
-#    70202,
-#]
 
 [authorization]
 # Pubkey addresses in this array are whitelisted for event publishing.

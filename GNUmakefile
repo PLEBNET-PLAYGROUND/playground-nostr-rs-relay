@@ -4,7 +4,7 @@ PROJECT_NAME:=plebnet-playground
 build:
 	docker build -t $(PROJECT_NAME)-nostr-rs-relay .
 run:
-	docker run -it -p 7000:8080 \
+	docker run -it -p 7000:7000 \
 		--mount src=$(PWD)/config.toml,target=/usr/src/app/config.toml,type=bind \
 		--mount src=$(PWD)/data,target=/usr/src/app/db,type=bind \
 		$(PROJECT_NAME)-nostr-rs-relay
