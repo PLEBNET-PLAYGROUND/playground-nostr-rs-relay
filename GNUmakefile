@@ -25,3 +25,5 @@ git-remotes:
 	@git remote add gheartsfield	git@git.sr.ht:~gheartsfield/nostr-rs-relay
 	@git remote add upstream	git@github.com:scsibug/nostr-rs-relay.git
 	@git remote add playground	git@github.com:PLEBNET-PLAYGROUND/playground-nostr-rs-relay.git
+nuke-docker:
+	@./scripts/nuke-docker

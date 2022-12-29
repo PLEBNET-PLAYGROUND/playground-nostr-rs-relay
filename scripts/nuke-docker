@@ -14,10 +14,18 @@ function nuke-docker(){
 
     sudo rm -rf /var/lib/docker
 
-    sudo apt-get install runc containerd
+	if hash apt-get 2>/dev/null; then
+		sudo apt-get install runc containerd
+		curl -fsSL https://get.docker.com | sudo sh
+	fi
 
-    curl -fsSL https://get.docker.com | sudo sh
-    docker --version
+	if hash brew 2>/dev/null; then
+	if ! hash docker 2>/dev/null; then
+		brew install -f --cask docker
+	fi
+		/Applications/Docker.app/Contents/MacOS/com.docker.backend  -unattended 2>/dev/null & \
+			make init build run
+	fi
 
     sudo rm -rf /etc/docker/daemon.json
     echo '{"experimental": true}' | sudo tee -a /etc/docker/daemon.json
@@ -25,5 +33,12 @@ function nuke-docker(){
     if hash systemctl 2>/dev/null; then
         sudo systemctl restart docker
     fi
+
+	if hash docker 2>/dev/null; then
+		docker --version
+	else
+		nuke-docker
+	fi
+
 }
 nuke-docker
