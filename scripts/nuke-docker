@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+DOCKER=$(which docker)
+echo "$DOCKER"
+export DOCKER
+test -z "$(docker ps -q 2>/dev/null)" || $(docker ps -q 2>/dev/null | xargs -L1 docker stop) || echo "docker already stopped!"
+
+function nuke-docker(){
+
+    if hash systemctl 2>/dev/null; then
+        if hash docker 2>/dev/null; then
+            if hash apt-get 2>/dev/null; then
+                sudo apt-get purge docker-ce docker-ce-cli containerd.io moby-engine moby-cli
+            fi
+        fi
+    fi
+
+	sudo rm -rf /var/lib/docker
+
+	if hash apt-get 2>/dev/null; then
+		sudo apt-get install runc containerd
+		curl -fsSL https://get.docker.com | sudo sh
+	fi
+
+	if hash brew 2>/dev/null; then
+		if ! hash docker 2>/dev/null; then
+			#brew install -f --cask docker
+			brew install --cask docker
+		fi
+	fi
+
+	sudo rm -rf /etc/docker/daemon.json
+	echo '{"experimental": true}' | sudo tee -a /etc/docker/daemon.json
+
+	if hash systemctl 2>/dev/null; then
+		sudo systemctl restart docker
+	else
+		/Applications/Docker.app/Contents/MacOS/com.docker.backend  -unattended 2>/dev/null &
+	fi
+	if hash docker 2>/dev/null; then
+		docker --version
+	else
+		echo
+		#nuke-docker
+	fi
+
+}
+nuke-docker
