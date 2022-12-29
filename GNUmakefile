@@ -8,7 +8,7 @@ GO:=$(which go)
 export GP
 PROJECT_NAME:=plebnet-playground
 export PROJECT_NAME
--: build
+-:
 	@mkdir -p data
 build:
 	@echo $(DOCKER)
@@ -17,7 +17,7 @@ build:
 		  docker build -t $(PROJECT_NAME)-nostr-rs-relay . || echo
 	#test  $(DOCKER_APP_MACOS) && \
 	#	  $(DOCKER_APP_MACOS) build -t $(PROJECT_NAME)-nostr-rs-relay .
-run:
+run:-
 	@echo $(DOCKER)
 	@echo $(DOCKER_APP_MACOS)
 	test  docker && docker run -d  -p 7000:7000 \
