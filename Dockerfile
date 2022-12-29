@@ -1,4 +1,4 @@
-FROM docker.io/library/rust:1.66.0 as builder
+FROM docker.io/rust:latest as builder
 
 RUN USER=root cargo install cargo-auditable
 RUN USER=root cargo new --bin nostr-rs-relay
@@ -19,8 +19,10 @@ RUN cargo auditable build --release --locked
 
 FROM docker.io/library/debian:bullseye-slim
 
+FROM docker.io/debian:latest
 ARG APP=/usr/src/app
 ARG APP_DATA=/usr/src/app/db
+RUN apt update && apt -y install openssl
 RUN apt-get update \
     && apt-get install -y ca-certificates tzdata sqlite3 libc6 \
     && rm -rf /var/lib/apt/lists/*
