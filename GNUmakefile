@@ -31,7 +31,7 @@ run:
 noscl:
 	#test $(BREW) && $(BREW) install -f golang || sudo apt-get install golang-go || true
 	$(GO)install github.com/fiatjaf/noscl@latest
-all: - init build run noscl
+all: - init build run #noscl
 init:
 	@echo $(DOCKER)
 	@echo $(DOCKER_APP_MACOS)
