@@ -1,2 +1,7 @@
+get-pip.py
 /target
 nostr.db
+nostr.db-shm
+nostr.db-wal
+
+.DS_Store
