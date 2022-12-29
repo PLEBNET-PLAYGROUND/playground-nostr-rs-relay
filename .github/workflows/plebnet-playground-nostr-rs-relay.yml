@@ -44,7 +44,7 @@ jobs:
   latest-build_and_test:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: [ ubuntu-latest, ubuntu-22.04, ubunut-20.04 ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
@@ -60,6 +60,12 @@ jobs:
       - run: pip install -r requirements.txt
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
-      - name: make nuke-docker
+      - name: make init
         run: |
-          make nuke-docker
+          make init
+      - name: make build
+        run: |
+          make build
+      - name: make run
+        run: |
+          make run

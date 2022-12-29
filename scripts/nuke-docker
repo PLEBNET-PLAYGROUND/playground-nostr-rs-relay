@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-
+DOCKER=$(which docker)
+echo "$DOCKER"
+export DOCKER
 test -z "$(docker ps -q 2>/dev/null)" || $(docker ps -q 2>/dev/null | xargs -L1 docker stop) || echo "docker already stopped!"
 
 function nuke-docker(){
@@ -12,7 +14,7 @@ function nuke-docker(){
         fi
     fi
 
-    sudo rm -rf /var/lib/docker
+	sudo rm -rf /var/lib/docker
 
 	if hash apt-get 2>/dev/null; then
 		sudo apt-get install runc containerd
@@ -20,24 +22,25 @@ function nuke-docker(){
 	fi
 
 	if hash brew 2>/dev/null; then
-	if ! hash docker 2>/dev/null; then
-		brew install -f --cask docker
+		if ! hash docker 2>/dev/null; then
+			#brew install -f --cask docker
+			brew install --cask docker
+		fi
 	fi
-		/Applications/Docker.app/Contents/MacOS/com.docker.backend  -unattended 2>/dev/null & \
-			make init build run
+
+	sudo rm -rf /etc/docker/daemon.json
+	echo '{"experimental": true}' | sudo tee -a /etc/docker/daemon.json
+
+	if hash systemctl 2>/dev/null; then
+		sudo systemctl restart docker
+	else
+		/Applications/Docker.app/Contents/MacOS/com.docker.backend  -unattended 2>/dev/null &
 	fi
-
-    sudo rm -rf /etc/docker/daemon.json
-    echo '{"experimental": true}' | sudo tee -a /etc/docker/daemon.json
-
-    if hash systemctl 2>/dev/null; then
-        sudo systemctl restart docker
-    fi
-
 	if hash docker 2>/dev/null; then
 		docker --version
 	else
-		nuke-docker
+		echo
+		#nuke-docker
 	fi
 
 }
