@@ -20,7 +20,7 @@ build:
 run:
 	@echo $(DOCKER)
 	@echo $(DOCKER_APP_MACOS)
-	test  docker && docker run -it -p 7000:7000 \
+	test  docker && docker run -d  -p 7000:7000 \
 		--mount src=$(PWD)/config.toml,target=/usr/src/app/config.toml,type=bind \
 		--mount src=$(PWD)/data,target=/usr/src/app/db,type=bind \
 		$(PROJECT_NAME)-nostr-rs-relay || echo
