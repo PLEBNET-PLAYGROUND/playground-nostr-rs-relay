@@ -44,7 +44,7 @@ jobs:
   latest-build_and_test:
     strategy:
       matrix:
-        os: [ ubuntu-latest, ubuntu-22.04, ubunut-20.04 ]
+        os: [ ubuntu-latest, ubuntu-22.04 ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
@@ -69,3 +69,28 @@ jobs:
       - name: make run
         run: |
           make run
+  macos-latest-cargo:
+    strategy:
+      matrix:
+        os: [ macos-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: syphar/restore-virtualenv@v1
+        id: cache-virtualenv
+      - uses: syphar/restore-pip-download-cache@v1
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+
+      - run: pip install -r requirements.txt
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+
+      - name: make init
+        run: |
+          make init
+      - name: make cargo-build
+        run: |
+          make cargo-build
