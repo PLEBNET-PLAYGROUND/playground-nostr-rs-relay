@@ -9,12 +9,12 @@ export PROJECT_NAME
 -: build
 	mkdir -p data
 build:
-	test docker && docker build -t $(PROJECT_NAME)-nostr-rs-relay . || ./scripts/initialize || echo "make init"
+	test docker && docker build -t $(PROJECT_NAME)-nostr-rs-relay . || ./scripts/initialize && echo "RERUN: make build"
 run:
 	test docker && docker run -it -p 7000:7000 \
 		--mount src=$(PWD)/config.toml,target=/usr/src/app/config.toml,type=bind \
 		--mount src=$(PWD)/data,target=/usr/src/app/db,type=bind \
-		$(PROJECT_NAME)-nostr-rs-relay || ./scripts/initialize || $(MAKE) run
+		$(PROJECT_NAME)-nostr-rs-relay || ./scripts/initialize && echo "RERUN: make run"
 noscl:
 	$(GO)install github.com/fiatjaf/noscl@latest
 all: - init build run noscl
