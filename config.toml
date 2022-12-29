@@ -104,12 +104,12 @@ reject_future_seconds = 1800
 # Pubkey addresses in this array are whitelisted for event publishing.
 # Only valid events by these authors will be accepted, if the variable
 # is set.
-pubkey_whitelist = [
-	"edfa27d49d2af37ee331e1225bb6ed1912c6d999281b36d8018ad99bc3573c29",
-	"a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd",
+#pubkey_whitelist = [
+#	"edfa27d49d2af37ee331e1225bb6ed1912c6d999281b36d8018ad99bc3573c29",
+#	"a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd",
 #  "35d26e4690cbe1a898af61cc3515661eb5fa763b57bd0b42e45099c8b32fd50f",
 #  "887645fef0ce0c3c1218d2f5d8e6132a19304cdc57cd20281d082f38cfea0072",
-]
+#]
 
 [verified_users]
 # NIP-05 verification of users.  Can be "enabled" to require NIP-05
