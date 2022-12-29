@@ -1,3 +1,4 @@
+get-pip.py
 /target
 nostr.db
 nostr.db-shm
