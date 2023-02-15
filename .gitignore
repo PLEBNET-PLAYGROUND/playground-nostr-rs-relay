@@ -1,7 +1,2 @@
-get-pip.py
-/target
+**/target/
 nostr.db
-nostr.db-shm
-nostr.db-wal
-
-.DS_Store
