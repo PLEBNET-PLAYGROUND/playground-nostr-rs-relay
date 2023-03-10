@@ -2,10 +2,10 @@
 
 [info]
 # The advertised URL for the Nostr websocket.
-relay_url = "wss://relay.nyc1.vinux.app"
+relay_url = "wss://relay.plebnet.fun"
 
 # Relay information for clients.  Put your unique server name here.
-name = "relay.nyc1.vinux.app"
+name = "relay.plebnet.fun"
 
 # Description
 description = "A newly created nostr-rs-relay.\n\nCustomize this with your own info."
@@ -45,7 +45,7 @@ data_directory = "data"
 address = "0.0.0.0"
 
 # Listen on this port
-port = 7000
+port = 3232
 
 # If present, read this HTTP header for logging client IP addresses.
 # Examples for common proxies, cloudflare:
