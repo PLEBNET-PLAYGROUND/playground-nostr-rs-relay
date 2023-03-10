@@ -105,9 +105,9 @@ endif
 submodules:checkbrew## 	submodules
 	@git submodule update --init --recursive
 	git submodule foreach --recursive "git submodule update --init --recursive"
-build:##
+build:## 	build
 	@docker-compose build
-run:##
+run:## 	run
 	@docker-compose up -d
 -include cargo.mk
 # vim: set noexpandtab:
