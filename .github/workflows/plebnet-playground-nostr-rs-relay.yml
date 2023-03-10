@@ -60,15 +60,10 @@ jobs:
       - run: pip install -r requirements.txt
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
-      - name: make init
+      - name: make cargo-build/install
         run: |
-          make init
-      - name: make build
-        run: |
-          make build
-      - name: make run
-        run: |
-          make run
+          make cargo-build
+          make cargo-install
   macos-latest-cargo:
     strategy:
       matrix:
@@ -88,9 +83,7 @@ jobs:
       - run: pip install -r requirements.txt
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
-      - name: make init
-        run: |
-          make init
-      - name: make cargo-build
+      - name: make cargo-build/install
         run: |
           make cargo-build
+          make cargo-install
