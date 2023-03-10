@@ -1,4 +1,4 @@
-FROM docker.io/rust:latest as builder
+FROM docker.io/rust:slim-buster as builder
 
 RUN USER=root cargo install cargo-auditable
 RUN USER=root cargo new --bin nostr-rs-relay
@@ -6,6 +6,7 @@ WORKDIR ./nostr-rs-relay
 COPY ./Cargo.toml ./Cargo.toml
 COPY ./Cargo.lock ./Cargo.lock
 # build dependencies only (caching)
+RUN apt update && apt install -y openssl libssl-dev pkg-config
 RUN cargo auditable build --release --locked
 # get rid of starter project code
 RUN rm src/*.rs
@@ -15,16 +16,16 @@ COPY ./src ./src
 
 # build auditable release using locked deps
 RUN rm ./target/release/deps/nostr*relay*
+RUN apt update && apt install -y openssl libssl-dev pkg-config
 RUN cargo auditable build --release --locked
 
-FROM docker.io/library/debian:bullseye-slim
+FROM docker.io/rust:slim-buster
 
-FROM docker.io/debian:latest
 ARG APP=/usr/src/app
 ARG APP_DATA=/usr/src/app/db
-RUN apt update && apt -y install openssl
+RUN apt update && apt install -y openssl libssl-dev pkg-config
 RUN apt-get update \
-    && apt-get install -y ca-certificates tzdata sqlite3 libc6 \
+    && apt-get install -y ca-certificates tzdata sqlite3 libc6 openssl libssl-dev pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8080
