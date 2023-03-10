@@ -109,6 +109,8 @@ build:## 	build
 	@docker-compose build
 run:## 	run
 	@docker-compose up -d
+restart:## 	restart
+	@docker-compose restart
 -include cargo.mk
 # vim: set noexpandtab:
 # vim: set setfiletype make
