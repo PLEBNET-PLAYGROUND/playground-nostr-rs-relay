@@ -11,5 +11,7 @@ services:
       dockerfile: Dockerfile
     command: ["tail", "-f", "/dev/null"]
     volumes:
-      - ${PWD:-.}:/usr/src/app
+      - ${PWD:-.}/data:/usr/src/app/data
+    ports:
+      - 3232:8080
 
