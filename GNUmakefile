@@ -112,5 +112,6 @@ run:## 	run
 restart:## 	restart
 	@docker-compose restart
 -include cargo.mk
+-include act.mk
 # vim: set noexpandtab:
 # vim: set setfiletype make

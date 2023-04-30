@@ -1,4 +1,4 @@
-name: plebnet-playground-nostr-rs-relay
+name: rs-relay
 
 # Controls when the action will run.
 on:
@@ -31,10 +31,11 @@ jobs:
     name: github-workspace
     strategy:
       matrix:
-        os: [ubuntu-20.04, ubuntu-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
+        if: ${{ !env.ACT }}
         with:
           access_token: ${{ github.token }}
       - name: Print github workspace
@@ -44,10 +45,11 @@ jobs:
   latest-build_and_test:
     strategy:
       matrix:
-        os: [ ubuntu-latest, ubuntu-22.04 ]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
+        if: ${{ !env.ACT }}
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
@@ -62,18 +64,25 @@ jobs:
 
       - name: make cargo-build/install
         run: |
-          make cargo-build
-          make cargo-install
+          export RUSTUP_INIT_SKIP_PATH_CHECK=yes
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source "$HOME/.cargo/env" && cargo b && cargo install --path .
+          #make cargo-build
+          #make cargo-install
+
   macos-latest-cargo:
+    if: ${{ !env.ACT }}
     strategy:
       matrix:
         os: [ macos-latest ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
+        if: ${{ !env.ACT }}
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
+        if: ${{ !env.ACT }}
       - uses: actions/setup-python@v2
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
@@ -84,6 +93,11 @@ jobs:
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
       - name: make cargo-build/install
+        if: ${{ !env.ACT }}
         run: |
+          export RUSTUP_INIT_SKIP_PATH_CHECK=yes
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
+          make submodules
           make cargo-build
-          make cargo-install
+
