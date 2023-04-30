@@ -35,6 +35,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
+        if: ${{ !env.ACT }}
         with:
           access_token: ${{ github.token }}
       - name: Print github workspace
@@ -48,6 +49,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
+        if: ${{ !env.ACT }}
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
@@ -62,8 +64,13 @@ jobs:
 
       - name: make cargo-build/install
         run: |
-          make cargo-build
-          make cargo-install
+          export RUSTUP_INIT_SKIP_PATH_CHECK=yes
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          #curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/rust-lang/rustup/master/rustup-init.sh | bash
+          source "$HOME/.cargo/env" && cargo b
+          #sudo apt install rustup-init
+          #make cargo-build
+          #make cargo-install
   macos-latest-cargo:
     strategy:
       matrix:
@@ -71,9 +78,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1
+        if: ${{ !env.ACT }}
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
+        if: ${{ !env.ACT }}
       - uses: actions/setup-python@v2
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
@@ -84,6 +93,14 @@ jobs:
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
       - name: make cargo-build/install
+        if: ${{ !env.ACT }}
         run: |
+          export RUSTUP_INIT_SKIP_PATH_CHECK=yes
+          #curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/rust-lang/rustup/master/rustup-init.sh | bash
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
+          #make
+          make submodules
+          #make run
           make cargo-build
-          make cargo-install
+          #make cargo-install
