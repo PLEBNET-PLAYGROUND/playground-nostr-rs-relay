@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use nostr_rs_relay::cli::CLIArgs;
+    use gnostr_relay::cli::CLIArgs;
 
     #[test]
     fn cli_tests() {

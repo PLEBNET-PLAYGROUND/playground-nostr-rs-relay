@@ -6,10 +6,10 @@ mod tests {
     use secp256k1::rand;
     use secp256k1::{KeyPair, Secp256k1, XOnlyPublicKey};
 
-    use nostr_rs_relay::conn::ClientConn;
-    use nostr_rs_relay::error::Error;
-    use nostr_rs_relay::event::Event;
-    use nostr_rs_relay::utils::unix_time;
+    use gnostr_relay::conn::ClientConn;
+    use gnostr_relay::error::Error;
+    use gnostr_relay::event::Event;
+    use gnostr_relay::utils::unix_time;
 
     const RELAY: &str = "wss://nostr.example.com/";
 
