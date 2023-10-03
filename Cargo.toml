@@ -1,3 +1,4 @@
+[workspace]##exclude from gnostr-workspace
 [package]
 name = "gnostr-relay"
 version = "0.0.0"
