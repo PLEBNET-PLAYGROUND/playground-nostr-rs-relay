@@ -1,3 +1,11 @@
+##make gnostr-test port=<int>
+ifneq ($(port),)
+PORT                                    :=$(port)
+else
+PORT                                    :=8080
+endif
+export PORT
+
 .PHONY:- help
 -:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?##/ {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -9,7 +17,7 @@ more:## 	more help
 -include Makefile
 
 gnostr-test:## 	gnostr-test
-	@$(shell which gnostr-relay) || true &
+	@$(shell which gnostr-relay) -p $(PORT) || true &
 	@echo $(shell which gnostr-relay)
 	@echo $(shell which gnostr)
 	@echo $(shell which gnostr-weeble)
@@ -21,7 +29,7 @@ gnostr-test:## 	gnostr-test
     --tag wobble $(shell gnostr-wobble) \
     --tag blockheight $(shell gnostr-blockheight) \
     --content "" \
-    | gnostr-post-event ws://0.0.0.0:8080
+    | gnostr-post-event ws://0.0.0.0:$(PORT)
 gnostr-relay-list:## 	gnostr-relay-list
 	@echo $(shell which gnostr)
 	@echo $(shell which gnostr-weeble)
@@ -33,7 +41,7 @@ gnostr-relay-list:## 	gnostr-relay-list
     --tag wobble $(shell gnostr-wobble) \
     --tag blockheight $(shell gnostr-blockheight) \
     --content "" \
-    | gnostr-post-event ws://0.0.0.0:8080
+    | gnostr-post-event ws://0.0.0.0:$(PORT)
 
 gnostr-test-proxy:## 	gnsotr-test-proxy
 	@echo $(shell which gnostr)
