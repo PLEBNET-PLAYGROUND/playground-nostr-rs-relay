@@ -2,10 +2,10 @@
 
 [info]
 # The advertised URL for the Nostr websocket.
-relay_url = "wss://nostr.example.com/"
+relay_url = "wss://relay.gnostr.org/"
 
 # Relay information for clients.  Put your unique server name here.
-name = "nostr-rs-relay"
+name = "relay.gnostr.org"
 
 # Description
 description = "gnostr: a git+nostr utility"
