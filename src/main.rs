@@ -65,6 +65,14 @@ fn main() {
         process::exit(1);
     });
 
+    let config_port_arg = args.port;
+    if let Some(config_port) = config_port_arg {
+        settings.network.port = config_port;
+    }
+    #[cfg(debug_assertions)]
+    println!("config_port_arg={:?}", config_port_arg);
+
+
     // setup tracing
     if settings.diagnostics.tracing {
         // enable tracing with tokio-console
@@ -97,7 +105,9 @@ fn main() {
 
     let home = home_dir();
     let gnostr_home: String = home.expect("REASON").display().to_string();
-    //println!("{:?}", gnostr_home);
+    #[cfg(debug_assertions)]
+    println!("{:?}", gnostr_home);
+
     let _ = fs::create_dir_all(gnostr_home + "/.gnostr/relay");
 
     // get database directory from args
@@ -110,9 +120,17 @@ fn main() {
     else {
       let home = home_dir();
       let gnostr_home: String = home.expect("REASON").display().to_string();
-      //println!("{:?}", gnostr_home);
-      let db_home = fs::create_dir_all(gnostr_home.clone() + "/.gnostr/relay");
-        settings.database.data_directory = gnostr_home.clone() + "/.gnostr/relay";
+
+      #[cfg(debug_assertions)]
+      println!("gnostr_home={:?}", gnostr_home);
+
+      let _db_home = fs::create_dir_all(gnostr_home.clone() + "/.gnostr/relay");
+
+      #[cfg(debug_assertions)]
+      println!("_db_home={:?}", _db_home);
+
+      settings.database.data_directory = gnostr_home.clone() + "/.gnostr/relay";
+
     }
     // we should have a 'control plane' channel to monitor and bump
     // the server.  this will let us do stuff like clear the database,
