@@ -1,7 +1,7 @@
 [workspace]##exclude from gnostr-workspace
 [package]
 name = "gnostr-relay"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 authors = ["Greg Heartsfield <scsibug@imap.cc>", "gnostr <admin@gnostr.org>"]
 description = "gnostr:git+nostr protocol relay"
