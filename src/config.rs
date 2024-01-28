@@ -268,7 +268,7 @@ impl Default for Settings {
         Settings {
             info: Info {
                 relay_url: None,
-                name: Some("Unnamed nostr-rs-relay".to_owned()),
+                name: Some("a gnostr relay".to_owned()),
                 description: None,
                 pubkey: None,
                 contact: None,
