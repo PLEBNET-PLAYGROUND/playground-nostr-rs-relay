@@ -62,8 +62,8 @@ description = "gnostr: a git+nostr utility"
 
 [logging]
 # Directory to store log files.  Log files roll over daily.
-#folder_path = "./log"
-#file_prefix = "nostr-relay"
+folder_path = "./log"
+file_prefix = "gnostr-relay"
 
 [grpc]
 # gRPC interfaces for externalized decisions and other extensions to
