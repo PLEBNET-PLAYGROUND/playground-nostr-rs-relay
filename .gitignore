@@ -5,3 +5,9 @@ justfile
 **DS_Store
 .nvmrc
 .gnostr/proxy
+
+
+PROCESS
+bash_profile.log
+log/
+nostr-rs-bench/
