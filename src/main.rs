@@ -24,6 +24,12 @@ static GLOBAL: Jemalloc = Jemalloc;
 
 /// Start running a Nostr relay server.
 fn main() {
+
+    let home = home_dir();
+    let gnostr_home: String = home.expect("REASON").display().to_string();
+    //println!("{:?}", gnostr_home);
+    let _ = fs::create_dir_all(gnostr_home + "/.gnostr/relay");
+
     let args = CLIArgs::parse();
 
     // get config file name from args
@@ -89,12 +95,24 @@ fn main() {
     }
     info!("Starting up from main");
 
+    let home = home_dir();
+    let gnostr_home: String = home.expect("REASON").display().to_string();
+    //println!("{:?}", gnostr_home);
+    let _ = fs::create_dir_all(gnostr_home + "/.gnostr/relay");
+
     // get database directory from args
     let db_dir_arg = args.db;
 
     // update with database location from args, if provided
     if let Some(db_dir) = db_dir_arg {
         settings.database.data_directory = db_dir;
+    }
+    else {
+      let home = home_dir();
+      let gnostr_home: String = home.expect("REASON").display().to_string();
+      //println!("{:?}", gnostr_home);
+      let db_home = fs::create_dir_all(gnostr_home.clone() + "/.gnostr/relay");
+        settings.database.data_directory = gnostr_home.clone() + "/.gnostr/relay";
     }
     // we should have a 'control plane' channel to monitor and bump
     // the server.  this will let us do stuff like clear the database,
