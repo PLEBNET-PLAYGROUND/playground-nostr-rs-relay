@@ -17,7 +17,7 @@ more:## 	more help
 -include Makefile
 
 gnostr-test:## 	gnostr-test
-	@$(shell which gnostr-relay) -p $(PORT) || true &
+	@$(shell which gnostr-relay) -p $(PORT) 2>/tmp/gnostr-relay || true &
 	@echo $(shell which gnostr-relay)
 	@echo $(shell which gnostr)
 	@echo $(shell which gnostr-weeble)
@@ -28,8 +28,10 @@ gnostr-test:## 	gnostr-test
     --tag weeble $(shell gnostr-weeble) \
     --tag wobble $(shell gnostr-wobble) \
     --tag blockheight $(shell gnostr-blockheight) \
-    --content "" \
+    --content "$(shell gnostr-weeble)" \
     | gnostr-post-event ws://0.0.0.0:$(PORT)
+
+
 gnostr-relay-list:## 	gnostr-relay-list
 	@echo $(shell which gnostr)
 	@echo $(shell which gnostr-weeble)
@@ -47,6 +49,6 @@ gnostr-test-proxy:## 	gnsotr-test-proxy
 	@echo $(shell which gnostr)
 	@echo $(shell which gnostr-weeble)
 	@echo $(shell which gnostr-post-event)
-	gnostr --sec $(shell gnostr-sha256 $(shell gnostr-weeble)) | gnostr-post-event ws://0.0.0.0:6102
+	gnostr --sec $(shell gnostr-sha256 $(shell gnostr-weeble)) | gnostr-post-event ws://0.0.0.0:$(PORT)
 
 -include cargo.mk
