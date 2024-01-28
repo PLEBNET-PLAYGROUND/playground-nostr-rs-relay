@@ -3,3 +3,5 @@ nostr.db
 nostr.db-*
 justfile
 **DS_Store
+.nvmrc
+.gnostr/proxy
