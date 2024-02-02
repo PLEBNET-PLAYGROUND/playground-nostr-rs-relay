@@ -1,0 +1,44 @@
+wss://{RELAY}/{REPO}/000009fe73d29fa284914633f99a83cfe8978c16/HEAD@{0}:commit:f5cdb3c805462bb1d8a218a8523e0c79fb08e1de/2059/828640/744515/01/00013a97 gnostr-relay:a hybrid git+nostr relay (WIP)
+wss://{RELAY}/{REPO}/51ba7b3e30b491c5dec221562d39bfd79aa8df70/HEAD@{1}:commit:Cargo.toml:
+wss://{RELAY}/{REPO}/51ba7b3e30b491c5dec221562d39bfd79aa8df70/HEAD@{2}:commit:Cargo.toml:
+wss://{RELAY}/{REPO}/00a3bfa31d47292abab47d91f99217fbb7da8f28/HEAD@{3}:commit:Cargo.toml:
+wss://{RELAY}/{REPO}/c5a9e36e784912f9c43365e6c774630c6be1a7a0/HEAD@{4}:commit:Merge pull request #5 from gnostr-org/1706482629/91d3d11/0f6224f-make-gnostr-proxy-relay-list
+wss://{RELAY}/{REPO}/d957f7b455f09f12842623b3e4d7c327940f9552/HEAD@{5}:commit:Merge pull request #6 from gnostr-org/1706482629/91d3d11/0f6224f-make-gnostr-proxy-relay-list
+wss://{RELAY}/{REPO}/0f6224ff3601854cda46339eb1cad0c51c2699fb/HEAD@{6}:commit:Merge pull request #4 from gnostr-org/1706477352/5470f79/91d3d11-make-gnostr-test
+wss://{RELAY}/{REPO}/2debededf64f0258b94c0c0085629c1edb06cdec/HEAD@{7}:commit:.gitignore:
+wss://{RELAY}/{REPO}/e3797fa595b73683e05615f6ed8519f42e345de4/HEAD@{8}:commit:.gnostr/snapshots/relay-2061-827873-237555-1706482629-91d3d11-0f6224f-make-gnostr-proxy-relay-list.patch
+wss://{RELAY}/{REPO}/4bdb30d7298f0fbe3469b45998f854f8f19fcf49/HEAD@{9}:commit:Cargo.lock:v0.0.2
+wss://{RELAY}/{REPO}/4bdb30d7298f0fbe3469b45998f854f8f19fcf49/HEAD@{10}:commit:Cargo.lock:v0.0.2
+wss://{RELAY}/{REPO}/c73d5b148119f629d02eccc69d005b6b8a3cc14c/HEAD@{11}:commit:Cargo.toml:v0.0.2
+wss://{RELAY}/{REPO}/0f6224ff3601854cda46339eb1cad0c51c2699fb/HEAD@{12}:commit:Merge pull request #4 from gnostr-org/1706477352/5470f79/91d3d11-make-gnostr-test
+wss://{RELAY}/{REPO}/0f6224ff3601854cda46339eb1cad0c51c2699fb/HEAD@{13}:commit:Merge pull request #4 from gnostr-org/1706477352/5470f79/91d3d11-make-gnostr-test
+wss://{RELAY}/{REPO}/0f6224ff3601854cda46339eb1cad0c51c2699fb/HEAD@{14}:commit:Merge pull request #4 from gnostr-org/1706477352/5470f79/91d3d11-make-gnostr-test
+wss://{RELAY}/{REPO}/91d3d11a7447c517749b76e220700ca7e6c6fa81/HEAD@{15}:commit:Merge pull request #3 from gnostr-org/1706422086/5ebc1b5/7415bef-home_dir_gnostr_home
+wss://{RELAY}/{REPO}/65126be08bd4ff80f10e13f6cb52926d597bc7ef/HEAD@{16}:commit:make:gnostr-test:gnostr-relay-list: port=<int>
+wss://{RELAY}/{REPO}/698b69e042dcc90be2c56546e5c38215f8ac7b41/HEAD@{17}:commit:.gitignore
+wss://{RELAY}/{REPO}/91d3d11a7447c517749b76e220700ca7e6c6fa81/HEAD@{18}:commit:Merge pull request #3 from gnostr-org/1706422086/5ebc1b5/7415bef-home_dir_gnostr_home
+wss://{RELAY}/{REPO}/91d3d11a7447c517749b76e220700ca7e6c6fa81/HEAD@{19}:commit:Merge pull request #3 from gnostr-org/1706422086/5ebc1b5/7415bef-home_dir_gnostr_home
+wss://{RELAY}/{REPO}/91d3d11a7447c517749b76e220700ca7e6c6fa81/HEAD@{20}:commit:Merge pull request #3 from gnostr-org/1706422086/5ebc1b5/7415bef-home_dir_gnostr_home
+wss://{RELAY}/{REPO}/7415bef303d5bef51e11e4977d56d703c8445d34/HEAD@{21}:commit:.github/workflows/gnostr-relay.yml
+wss://{RELAY}/{REPO}/6e69eacbac010f3baa535057baa2bad95b2b1247/HEAD@{22}:commit:GNUmakefile:make port=<int>
+wss://{RELAY}/{REPO}/1c91dc5c87c865840a164777fc8d3335aa3eca30/HEAD@{23}:commit:src/cli.rs:main.rs
+wss://{RELAY}/{REPO}/45bfe5b32135fe5609e960e826bfc80d12ef679e/HEAD@{24}:commit:src/cli.rs:main.rs
+wss://{RELAY}/{REPO}/3bc97e02dc2b4fcb6ff5cbe03562fe4c15101a6d/HEAD@{25}:commit:cnofig.toml:revert folder_path
+wss://{RELAY}/{REPO}/e10e1d14fba9ca00c7f4e5ff0967bbaaba4af603/HEAD@{26}:commit:config.toml:relay_url:name
+wss://{RELAY}/{REPO}/ab5b08f33e8530b7720254ebc81631277a1f17e7/HEAD@{27}:commit:config.toml
+wss://{RELAY}/{REPO}/a65049979a01a0facc9be06e7228a251c2a22a86/HEAD@{28}:commit:make:gnostr-test
+wss://{RELAY}/{REPO}/c5b52782083e32e571b4d8266f7d35d490fcf8ea/HEAD@{29}:commit:config.toml:
+wss://{RELAY}/{REPO}/88d0df2ef2efa511d6c476276761c81957ad8b5d/HEAD@{30}:commit:src/config.rs:
+wss://{RELAY}/{REPO}/6180dbfa43fab0b49fe34a69c4e9e3ff961bc70e/HEAD@{31}:commit:src/main.rs:gnostr_home
+wss://{RELAY}/{REPO}/efd5ad64e71642041db884817ab92e6cf49718dd/HEAD@{32}:commit:src/main.rs:
+wss://{RELAY}/{REPO}/b97f52268aa52f5ce4f5f59334569fe3dec1ce0b/HEAD@{33}:commit:Cargo.toml:Cargo.lock
+wss://{RELAY}/{REPO}/7415bef303d5bef51e11e4977d56d703c8445d34/HEAD@{34}:commit:.github/workflows/gnostr-relay.yml
+wss://{RELAY}/{REPO}/7415bef303d5bef51e11e4977d56d703c8445d34/HEAD@{35}:commit:.github/workflows/gnostr-relay.yml
+wss://{RELAY}/{REPO}/7415bef303d5bef51e11e4977d56d703c8445d34/HEAD@{36}:commit:.github/workflows/gnostr-relay.yml
+wss://{RELAY}/{REPO}/b71f516ace1f8a1a4ff6a3ef2c226868216a33bf/HEAD@{37}:commit:.github/workflows/gnostr-relay.yml
+wss://{RELAY}/{REPO}/5ebc1b5652a3f41adc9ad9e4243c6dffb97b3c16/HEAD@{38}:commit:Cargo.toml:v0.0.1
+wss://{RELAY}/{REPO}/204be6883e1ea110209418f79b8bb49b7002c96c/HEAD@{39}:commit:GNUmakefile:help:gnostr-test:gnostr-test-proxy
+wss://{RELAY}/{REPO}/204be6883e1ea110209418f79b8bb49b7002c96c/HEAD@{40}:commit:GNUmakefile:help:gnostr-test:gnostr-test-proxy
+wss://{RELAY}/{REPO}/c0d3a5efd5ceaa3db84246e43d3976f242c5d078/HEAD@{41}:commit:.gitignore:**DS_Store
+wss://{RELAY}/{REPO}/03179bc88fe2afc1f1b50155bee699ec04e384d9/HEAD@{42}:commit:make:cargo-i
+wss://{RELAY}/{REPO}/81a6168b0c4809c15b2fb4d39c3fce211e1f11ae/HEAD@{43}:commit:Cargo.toml:+[workspace]##exclude from gnostr-workspace
