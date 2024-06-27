@@ -1,4 +1,4 @@
-FROM docker.io/rust:slim-buster as builder
+FROM docker.io/rust:slim-buster AS builder
 
 RUN USER=root cargo install cargo-auditable
 RUN USER=root cargo new --bin nostr-rs-relay
