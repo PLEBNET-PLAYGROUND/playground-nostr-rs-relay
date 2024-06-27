@@ -71,7 +71,6 @@ jobs:
           #make cargo-install
 
   macos-latest-cargo:
-    if: ${{ !env.ACT }}
     strategy:
       matrix:
         os: [ macos-latest ]
